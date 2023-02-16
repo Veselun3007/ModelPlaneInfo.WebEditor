@@ -139,7 +139,7 @@ L---ModelPlaneInfo.Web
  ```           
 
 - **`Common`**- contains auxiliary classes.
-- **`Common.Repositories`** - contains the implementation classes of the `Unit of work` and `Repository` patterns the correctness of sorting.
+- **`Common.Repositories`** - contains the implementation classes of the `Unit of work` and `Repository` patterns.
 - **`ModelPlaneInfo`** - contains the data context and classes for working with the data.
 - **`ModelPlaneInfo.Web`** - contains a web project namely models, views, controllers.
 
