@@ -3,7 +3,6 @@
 An old course project designed to introduce the ASP .NET MVC Framework. The ASP .NET Framework is deprecated. ASP .NET Core is currently recommended. The project was developed on an old platform due to the need to comply with the requirements of the technical task.
 
 ## Project structure
-
 ```bash
 ModelPlaneInfo.WebEditor:
 ¦   ModelPlaneInfo.WebEditor.sln
@@ -187,7 +186,7 @@ Image 3. - _**Tools for working with data on aircraft type**_
 
 ## Conclusions
 
-For all the shortcomings of this project, it is a good example of both good and bad decisions. It can be considered as a good educational project.
+Despite several flaws, it is a good example of both good and bad decisions. It can be considered as a good educational project.
 
 Basic recommendations:
 
