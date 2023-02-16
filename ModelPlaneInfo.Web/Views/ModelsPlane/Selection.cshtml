@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ModelPlaneInfo.Web.Models.ModelPlaneTableModel>
+
+@{
+    ViewBag.Title = "Selection";
+}
+
+<div class="container p-5">
+    <div class="row">
+        <div class="col-4">
+            <div id="parameters">
+                <h3>Parameters</h3>
+                @Html.Partial("_SelectionForm")
+            </div>
+        </div>
+        <div class="col-8">
+            <h3>Models plane</h3>
+            <table class="table">
+                <thead>
+                    @Html.Partial("_TableHead", @Model)
+                </thead>
+                <tbody id="data">
+                    @Html.Partial("_TableBody", @Model)
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

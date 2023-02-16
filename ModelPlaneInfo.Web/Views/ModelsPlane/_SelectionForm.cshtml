@@ -1,0 +1,38 @@
+﻿@using (Ajax.BeginForm(
+    "_SelectData",
+        new AjaxOptions
+        {
+            UpdateTargetId = "data",
+            LoadingElementId = "loading",
+            LoadingElementDuration = 1000
+        }
+        ))
+
+{
+    <div class="container">
+        <div class="p-2">
+            Beginning of the title<br />
+            <input type="text" name="selName" class="form-control" />
+        </div>
+        <div class="p-2">
+            Type of aircraft<br />
+            @Html.DropDownList("selTypeName", ViewBag.selTypeName as SelectList, new { @class = "form-control" })
+        </div>
+        <div class="p-2">
+            Year of start of operation<br />
+            <input type="text" name="beginnYearFrom" class="form-control" placeholder="from" />
+            <input type="text" name="beginnYearTo" class="form-control" placeholder="to" />
+        </div>
+        <div class="p-2">
+            Availability in operation<br />
+            @Html.DropDownList("selUsed", ViewBag.selUsed as SelectList, new { @class = "form-control" })
+        </div>
+        <div class="text-center p-2">
+            <input type="submit" value="Select" class="btn btn-outline-success btn-lg" />
+            @Html.ActionLink(" Back ", "ModelsPlane", "ModelsPlane", new { used = "" }, new { @class = "btn btn-outline-dark btn-lg" })
+        </div>
+        <div id="loading" class="load" style="display:none">
+            <p>Load data...</p>
+        </div>
+    </div>     
+        }

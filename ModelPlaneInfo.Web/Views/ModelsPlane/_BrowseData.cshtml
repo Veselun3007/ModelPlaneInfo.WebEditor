@@ -1,0 +1,17 @@
+﻿@model IEnumerable<ModelPlaneInfo.Web.Models.ModelPlaneInfoModel>
+
+<div class="row row-cols-2">
+    @foreach (var m in @Model)
+    {
+        <div class="col-sm-6 p-4">
+            <div class="card border-success">
+                <div class="card-body">
+                    <h4 class="card-title">@m.Name</h4>
+                    <h5 class="card-title">Тип: @m.Type</h5>
+                    <p class="card-text">Рік початку експлуатації: @m.BeginnYear</p>
+                    <p class="card-text">Наявність в експлуатації: @m.Used</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

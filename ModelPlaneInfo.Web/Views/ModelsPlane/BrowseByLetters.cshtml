@@ -1,0 +1,43 @@
+﻿@using ModelPlaneInfo.Web.Controllers
+
+@model IEnumerable<ModelPlaneInfo.Web.Models.ModelPlaneInfoModel>
+
+@{
+    ViewBag.Title = "BrowseByLetters";
+}
+
+<div class="container p-2">
+    <h3 class="p-3">Filtration by letters</h3>
+    <nav class="nav nav-pills nav-fill">
+        @foreach (string letter in @ViewBag.Letters as IEnumerable<string>)
+        {
+            @Ajax.ActionLink(
+                               letter,
+                               "_GetDataByLetter",
+                               new { selLetter = letter },
+                               new AjaxOptions
+                               {
+                                   UpdateTargetId = "data",
+                                   LoadingElementId = "loading",
+                                   LoadingElementDuration = 1000
+                               },
+                               new { @class = "nav-link nav-item btn btn-outline-dark" })
+        }
+    </nav>
+    <div id="loading" class="load" style="display:none">
+        <p>Load data...</p>
+    </div>
+
+    <div class="p-4">
+        <div id="data">
+            @Html.Action("_GetDataByLetter",
+                new { selLetter = @ModelsPlaneController.ALL_PAGE_LINK_NAME })
+        </div>
+
+        <div class="text-center p-3">
+            @Html.ActionLink("Back", "ModelsPlane",
+            "ModelsPlane", new { used = "" },
+            new { @class = "btn btn-outline-dark btn-lg btn-block" })
+        </div>
+    </div>
+</div>

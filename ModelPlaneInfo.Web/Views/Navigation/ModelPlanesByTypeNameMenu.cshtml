@@ -1,0 +1,24 @@
+﻿@model IEnumerable<string>
+
+<div class="container p-3">
+    <h3 class="p-3">Types plane</h3>
+
+    @foreach (var link in Model)
+    {
+        <div class="p-3">
+            @Html.RouteLink(
+                link.Length < 20 ? link : link.Substring(0, 17) + "...",
+                new
+                {
+                    controller = "ModelsPlane",
+                    action = "ModelPlanesByTypeNameInfo",
+                    categoryName = link
+                },
+                new
+                    {
+                    @class = "btn btn-outline-success btn-block btn-default btn-lg"
+                        + (link == ViewBag.SelectedCategoryName ? " btn-outline-success" : "")
+                })
+        </div>
+    }
+</div>

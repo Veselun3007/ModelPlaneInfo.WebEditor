@@ -1,0 +1,78 @@
+﻿@model ModelPlaneInfo.Web.Models.ModelPlaneEditingModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="container">
+    <h3 class="p-4">Create a new record about aircraft models</h3>
+
+    <div class="p-2">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-6" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TypeName, htmlAttributes: new { @class = "control-label col-md-6" })
+                    <div class="col-md-12">
+                        @Html.DropDownListFor(model => model.TypeName, ViewBag.TypeName as SelectList, "", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TypeName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BeginnYear, htmlAttributes: new { @class = "control-label col-md-6", min = 1975, max = DateTime.Now.Year })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.BeginnYear, new { htmlAttributes = new { @class = "form-control" } })
+                        @if (Model.BeginnYear >= DateTime.Now.Year || Model.BeginnYear <= 1975)
+                        {
+                            @Html.ValidationMessageFor(model => model.BeginnYear, $"Year must be between 1975 and {DateTime.Now.Year}", new { @class = "text-danger" })
+                        }
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Used, htmlAttributes: new { @class = "control-label col-md-6" })
+                    <div class="col-md-12">
+                        @Html.DropDownListFor(model => model.Used, ViewBag.Used as SelectList, "", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Used, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-6" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label col-md-6" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group text-center p-4">
+                    <div class="col-md-offset-2 col-md-12">
+                        <a class="btn btn-outline-dark btn-lg" href="/ModelPlaneCrud/Index">Back to List</a>
+                        <input type="submit" value="Create" class="btn btn-outline-success btn-lg" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

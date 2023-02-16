@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ModelPlaneInfo.Entities.ModelPlane>
+
+
+@{
+    ViewBag.Title = "Вибір моделей літаків за типом";
+    Layout = "~/Views/Shared/_CategoryLayout.cshtml";
+}
+
+
+    <h3 class="p-3">Information about models and types of aircraft</h3>
+
+    <div class="row row-cols-2">
+        @foreach (var m in @Model)
+        {
+            <div class="col-sm-6 p-3">
+                <div class="card border-success">
+                    <div class="card-body">
+                        <h4 class="card-title"><strong>@m.Type.Name</strong></h4>
+                        <p class="card-text">Aircraft name: @m.Name</p>
+                        <p class="card-text">Year of start of operation: @m.BeginnYear</p>
+                        <p class="card-text">Availability in use: @m.Used</p>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+
+@section NavMenu
+    {
+    @Html.Action("ModelPlanesByTypeNameMenu", "Navigation",
+         new { categoryName = ViewBag.SelectedCategoryName })
+}
+
+
+

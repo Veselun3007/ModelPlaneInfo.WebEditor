@@ -1,0 +1,132 @@
+ModelPlaneInfo.WebEditor:
+¦   ModelPlaneInfo.WebEditor.sln
+¦   
++---Common
+¦   ¦   Common.csproj
+¦   ¦   
+¦   +---Extensions
+¦   ¦       EnumerableMethods.cs
+¦   ¦       
+¦   +---Interfaces
+¦   ¦       IEntity.cs
+¦   ¦       IKeyable.cs
+¦   ¦       ITestStorage.cs
+¦   ¦       
+¦   L---Properties
+¦           AssemblyInfo.cs
+¦           
++---Common.Repositories
+¦   ¦   Common.Repositories.csproj
+¦   ¦   Repository.cs
+¦   ¦   UnitOfWork.cs
+¦   ¦   
+¦   +---Interfaces
+¦   ¦       IRepository.cs
+¦   ¦       IUnitOfWork.cs
+¦   ¦       
+¦   L---Properties
+¦           AssemblyInfo.cs
+¦           
++---ModelPlaneInfo
+¦   ¦   ModelPlaneInfo.csproj
+¦   ¦   ModelPlaneInfo.csproj.user
+¦   ¦   
+¦   +---Data
+¦   ¦       DataContext.cs
+¦   ¦       DataContext.TestingData.cs
+¦   ¦       
+¦   +---Entities
+¦   ¦       ModelPlane.cs
+¦   ¦       ModelPlane.validation.cs
+¦   ¦       PlaneType.cs
+¦   ¦       PlaneType.validation.cs
+¦   ¦       
+¦   +---Interfaces
+¦   ¦       IDataSet.cs
+¦   ¦       IFileIoController.cs
+¦   ¦       
+¦   +---IO
+¦   ¦       BinarySerializationController.cs
+¦   ¦       GenericBinarySerializationController.cs
+¦   ¦       XmlFileIoController.cs
+¦   ¦       
+¦   +---Properties
+¦   ¦       AssemblyInfo.cs
+¦   ¦       
+¦   L---Repositories
+¦           FileBasedUnitOfWork.cs
+¦           IInfoUnitOfWork.cs
+¦           
+L---ModelPlaneInfo.Web
+    ¦   ModelPlaneInfo.Web.csproj
+    ¦   
+    +---App_Start
+    ¦       RouteConfig.cs
+    ¦       
+    +---Connected Services
+    +---Controllers
+    ¦       HomeController.cs
+    ¦       ModelsPlaneController.cs
+    ¦       ModelsPlaneCrudController.cs
+    ¦       NavigationController.cs
+    ¦       PlanesTypeController.cs
+    ¦       PlanesTypeCrudController.cs
+    ¦  
+    +---Infrastructure
+    ¦       UoWCreator.cs
+    ¦       
+    +---Models
+    ¦       ModelPlaneEditingModel.cs
+    ¦       ModelPlaneInfoModel.cs
+    ¦       ModelPlaneSelectionModel.cs
+    ¦       ModelPlaneTableModel.cs
+    ¦       ModelPlaneViewModel.cs
+    ¦       PlaneTypeEditingModel.cs
+    ¦       PlaneTypeSelectionModel.cs
+    ¦       PlaneTypeViewModel.cs
+    ¦       
+    +---Properties
+    ¦       AssemblyInfo.cs
+    ¦       
+    +---Scripts
+    ¦       bootstrap.min.js
+    ¦       
+    L---Views
+        ¦   web.config
+        ¦   _ViewStart.cshtml
+        ¦   
+        +---Home
+        ¦       EntitiesList.cshtml
+        ¦       
+        +---ModelPlaneCrud
+        ¦       Create.cshtml
+        ¦       Edit.cshtml
+        ¦       Index.cshtml
+        ¦       
+        +---ModelsPlane
+        ¦       BrowseByLetters.cshtml
+        ¦       ModelPlanesByTypeNameInfo.cshtml
+        ¦       ModelsPlane.cshtml
+        ¦       Selection.cshtml
+        ¦       _BrowseData.cshtml
+        ¦       _SelectionForm.cshtml
+        ¦       _TableBody.cshtml
+        ¦       _TableHead.cshtml
+        ¦       
+        +---Navigation
+        ¦       ModelPlanesByTypeNameMenu.cshtml
+        ¦       
+        +---PlanesType
+        ¦       PlanesType.cshtml
+        ¦       
+        +---PlanesTypeCrud
+        ¦       Create.cshtml
+        ¦       Edit.cshtml
+        ¦       Index.cshtml
+        ¦       
+        L---Shared
+                _CategoryLayout.cshtml
+                _DescriptiveBlock.cshtml
+                _DescriptiveInfo.cshtml
+                _Layout.cshtml
+                

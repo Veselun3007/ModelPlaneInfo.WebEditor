@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ModelPlaneInfo.Web.Models.PlaneTypeViewModel>
+
+@{
+    ViewBag.Title = "Типи літаків";
+}
+
+<h2 class="p-4">Info about plan type</h2>
+
+<script type="text/javascript">
+    function OnSuccess(data) {
+        var info = $('#info' + data.Id);
+        info.empty();
+        if (data.Info == null)
+            return;
+        for (var i = 0; i < data.Info.length; i++) {
+            info.append('<p class="lead">' + data.Info[i] + '</p>');
+        }
+    }
+</script>
+<div class="row p-2">
+    <div class="card-columns">
+        @foreach (var m in @Model)
+        {
+            <div class="card border-success mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">@m.Name</h5>
+                    <p class="card-text">
+                        @if (m.HasInfo)
+                        {
+                            <div id=@string.Concat("info", @m.Id)>
+                                @using (Ajax.BeginForm(
+                                    "JsonIdInfo",
+                                    new AjaxOptions
+                                    {
+                                        OnSuccess = "OnSuccess"
+                                    }))
+                                {
+                                    @Html.Hidden("id", @m.Id)
+                                    <input type="submit" value="More info" ,
+                                           class="btn btn-outline-info" } />
+                                }
+                            </div>
+                        }
+                    <p />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="text-center p-4">
+    @Html.ActionLink("Back", "EntitiesList", "Home", new { used = "" },
+        new { @class = "btn btn-outline-dark btn-lg" })
+    @Html.ActionLink("Admin", "Index", "PlanesTypeCrud", new { used = "" },
+        new { @class = "btn btn-outline-dark btn-lg" })
+</div>
+

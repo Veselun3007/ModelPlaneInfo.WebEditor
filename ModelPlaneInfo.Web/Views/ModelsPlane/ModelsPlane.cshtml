@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ModelPlaneInfo.Web.Models.ModelPlaneViewModel>
+
+@{
+    ViewBag.Title = "Моделі літаків";
+}
+
+<nav class="nav nav-pills nav-fill">
+    <a class="nav-link nav-item btn btn-outline-dark btn-sm" href="/ModelsPlane/BrowseByLetters">Filtration by letters</a>
+    <a class="nav-link nav-item btn btn-outline-dark btn-sm" href="/ModelsPlane/ModelPlanesByTypeNameInfo">Filtration by type</a>
+    <a class="nav-link nav-item btn btn-outline-dark btn-sm" href="/ModelsPlane/Selection">Filtration by parameters</a>
+    <a class="nav-link nav-item btn btn-outline-dark btn-sm" href="/ModelPlaneCrud/Index">Admin</a>
+    <a class="nav-link nav-item btn btn-outline-dark btn-sm" href="/Home/EntitiesList">Entities list</a>
+</nav>
+
+
+<script type="text/javascript">
+    function OnSuccess(data) {
+        var info = $('#info' + data.Id);
+        info.empty();
+        if (data.Info == null)
+            return;
+        for (var i = 0; i < data.Info.length; i++) {
+            info.append('<p class="card-text">'
+                + data.Info[i] + '</p>');
+        }
+    }
+</script>
+<div class="container p-5">
+    <div class="row row-cols-2">
+        @foreach (var m in @Model)
+        {
+            <div class="col-sm-6 p-3">
+                <div class="card border-success">
+                    <div class="card-body">
+                        <h4 class="card-title"><strong> @m.Name </strong></h4>
+                        <p class="card-text">Type plane: @m.Type </p>
+                        <p class="card-text">Year of operation: @m.BeginnYear </p>
+                        <p class="card-text"> Availability in use: @m.Used </p>
+                        @if (m.HasInfo)
+                        {
+                            <div id=@string.Concat("info", @m.Id)>
+                                @using (Ajax.BeginForm(
+                                    "JsonIdInfo",
+                                    new AjaxOptions
+                                    {
+                                        OnSuccess = "OnSuccess"
+                                    }))
+                                {
+                                    @Html.Hidden("id", @m.Id)
+                                    <input type="submit" value="More Info" ,
+                                           class="btn btn-outline-info" } />
+                                }
+                            </div>
+                        }
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
