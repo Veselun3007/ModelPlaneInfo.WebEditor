@@ -1,6 +1,6 @@
 # ModelPlaneInfo.WebEditor
 
-An old course project designed to introduce the ASP .NET MVC Framework. The ASP .NET Framework is deprecated. ASP .NET Core is currently recommended. The project was developed on an old platform due to the need to comply with the requirements of the technical task.
+An old course project designed to introduce the ASP .NET MVC Framework. The ASP .NET Framework isn`t cross-platform. ASP .NET Core is currently recommended. The project was developed on an ASP .NET MVC Framework due to the need to comply with the requirements of the technical task.
 
 ## Project structure
 ```bash
